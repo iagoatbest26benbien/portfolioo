@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased bg-white text-black;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .anime-card {
+    @apply relative overflow-hidden rounded-lg bg-gray-800/50 backdrop-blur-sm;
+  }
+
+  .anime-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-anime-pink/20 to-anime-purple/20 opacity-0 transition-opacity duration-300;
+  }
+
+  .anime-card:hover::before {
+    @apply opacity-100;
+  }
+}
+
+/* Animations personnalisées */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.logo-covergreen {
+  @apply rounded-full shadow-lg bg-white flex items-center justify-center mx-auto mb-6;
+  width: 96px;
+  height: 96px;
+} 
